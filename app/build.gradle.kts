@@ -16,8 +16,8 @@ android {
         applicationId = "com.cst.richard.vppassword"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -72,4 +72,5 @@ dependencies {
     // 如果你使用的是 Kotlin，需要添加 KSP 插件支持，这里先用最通用的 kapt 或 annotationProcessor
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.biometric:biometric:1.2.0-alpha05")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
