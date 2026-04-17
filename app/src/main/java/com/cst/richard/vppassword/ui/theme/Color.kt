@@ -19,3 +19,20 @@ val ForestCard = Color(0xFF2D382D)
 val CyberpunkDark = Color(0xFF1E0A2D)
 val CyberpunkPink = Color(0xFFFF007F)
 val CyberpunkCard = Color(0xFF2C133F)
+
+// --- OLD MONEY (Quiet Luxury) Palette ---
+
+// Ivory Silk (Light)
+val IvoryBeige = Color(0xFFF5F5DC) // Creamy beige
+val CamelTan = Color(0xFFC19A6B)   // Classic camel leather
+val DeepEspresso = Color(0xFF2E1A1A) // Dark brown for text
+
+// Royal Navy (Dark)
+val RoyalNavyDark = Color(0xFF001A33) // Muted midnight blue
+val ChampagneGold = Color(0xFFF7E7CE) // Soft gold accent
+val NavyCard = Color(0xFF00264D)
+
+// Oxford Wine (Dark)
+val OxfordBurgundy = Color(0xFF4D0000) // Deep muted wine
+val LeatherBrown = Color(0xFF3D2B1F)    // Muted leather
+val WineCard = Color(0xFF660000)

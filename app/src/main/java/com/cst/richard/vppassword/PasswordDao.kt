@@ -13,6 +13,10 @@ interface PasswordDao {
 
     @Delete
     suspend fun delete(entry: PasswordEntry)
+
     @Update
     suspend fun update(entry: PasswordEntry)
+
+    @Query("DELETE FROM passwords WHERE id IN (:ids)")
+    suspend fun deleteBatch(ids: List<Int>)
 }

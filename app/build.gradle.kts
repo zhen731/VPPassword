@@ -8,14 +8,12 @@ plugins {
 
 android {
     namespace = "com.cst.richard.vppassword"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.cst.richard.vppassword"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 2
         versionName = "1.1.0"
 
@@ -62,15 +60,19 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation("androidx.datastore:datastore-preferences:1.1.1")
-    // 为了方便观察数据流
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation("androidx.compose.material:material-icons-extended")
-    val room_version = "2.6.1" // 2026 年的稳定版本
+    val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    // 如果你使用的是 Kotlin，需要添加 KSP 插件支持，这里先用最通用的 kapt 或 annotationProcessor
     kapt("androidx.room:room-compiler:$room_version")
+    
+    // SQLCipher Encryption
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4@aar")
+    implementation("androidx.sqlite:sqlite-ktx:2.4.0")
+
     implementation("androidx.biometric:biometric:1.2.0-alpha05")
     implementation("com.google.code.gson:gson:2.10.1")
 }

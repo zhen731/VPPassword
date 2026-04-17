@@ -11,7 +11,10 @@ enum class ThemeVariant(val titleEn: String, val titleCn: String) {
     MIDNIGHT_DARK("Midnight Dark", "午夜极暗"),
     OCEAN_BLUE("Ocean Blue", "深海静谧青"),
     FOREST_GREEN("Forest Green", "迷雾森林绿"),
-    CYBERPUNK("Cyberpunk", "赛博朋克深紫")
+    CYBERPUNK("Cyberpunk", "赛博朋克深紫"),
+    IVORY_SILK("Ivory Silk", "老钱·象牙丝绸"),
+    ROYAL_NAVY("Royal Navy", "老钱·皇家海军"),
+    OXFORD_WINE("Oxford Wine", "老钱·牛津红酒")
 }
 
 val MidnightColorScheme = darkColorScheme(
@@ -65,6 +68,44 @@ val CyberpunkColorScheme = darkColorScheme(
     onSurface = Color.White
 )
 
+// --- OLD MONEY Color Schemes ---
+
+val IvorySilkColorScheme = lightColorScheme(
+    primary = CamelTan,
+    onPrimary = Color.White,
+    secondary = CamelTan,
+    background = IvoryBeige,
+    surface = Color.White,
+    surfaceVariant = IvoryBeige.copy(alpha = 0.5f),
+    onBackground = DeepEspresso,
+    onSurface = DeepEspresso,
+    onSurfaceVariant = DeepEspresso.copy(alpha = 0.7f)
+)
+
+val RoyalNavyColorScheme = darkColorScheme(
+    primary = ChampagneGold,
+    onPrimary = RoyalNavyDark,
+    secondary = ChampagneGold,
+    background = RoyalNavyDark,
+    surface = RoyalNavyDark,
+    surfaceVariant = NavyCard,
+    onBackground = ChampagneGold,
+    onSurface = ChampagneGold,
+    onSurfaceVariant = ChampagneGold.copy(alpha = 0.7f)
+)
+
+val OxfordWineColorScheme = darkColorScheme(
+    primary = Color.White,
+    onPrimary = OxfordBurgundy,
+    secondary = ChampagneGold,
+    background = OxfordBurgundy,
+    surface = OxfordBurgundy,
+    surfaceVariant = WineCard,
+    onBackground = Color.White,
+    onSurface = Color.White,
+    onSurfaceVariant = Color.White.copy(alpha = 0.7f)
+)
+
 @Composable
 fun VPPasswordTheme(
     themeVariant: ThemeVariant = ThemeVariant.MIDNIGHT_DARK,
@@ -76,6 +117,9 @@ fun VPPasswordTheme(
         ThemeVariant.OCEAN_BLUE -> OceanColorScheme
         ThemeVariant.FOREST_GREEN -> ForestColorScheme
         ThemeVariant.CYBERPUNK -> CyberpunkColorScheme
+        ThemeVariant.IVORY_SILK -> IvorySilkColorScheme
+        ThemeVariant.ROYAL_NAVY -> RoyalNavyColorScheme
+        ThemeVariant.OXFORD_WINE -> OxfordWineColorScheme
     }
 
     MaterialTheme(
