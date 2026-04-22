@@ -11,10 +11,17 @@ enum class ThemeVariant(val titleEn: String, val titleCn: String) {
     MIDNIGHT_DARK("Midnight Dark", "午夜极暗"),
     OCEAN_BLUE("Ocean Blue", "深海静谧青"),
     FOREST_GREEN("Forest Green", "迷雾森林绿"),
-    CYBERPUNK("Cyberpunk", "赛博朋克深紫"),
-    IVORY_SILK("Ivory Silk", "老钱·象牙丝绸"),
-    ROYAL_NAVY("Royal Navy", "老钱·皇家海军"),
-    OXFORD_WINE("Oxford Wine", "老钱·牛津红酒")
+    ROYAL_NAVY("Royal Navy", "皇家海军蓝"),
+    TITANIUM_MATTE("Titanium Matte", "钛晶灰");
+
+    fun getTitle(): String = when(this) {
+        PEBBLE_LIGHT -> com.cst.richard.vppassword.ui.AppLanguage.t("Pebble Light", "鹅卵石浅色", "鵝卵石淺色", "ペブルライト", "Pebble Light", "Pebble Light", "조약돌 라이트", "Pebble Light")
+        MIDNIGHT_DARK -> com.cst.richard.vppassword.ui.AppLanguage.t("Midnight Dark", "午夜极暗", "午夜極暗", "ミッドナイトダーク", "Minuit sombre", "Mitternachtsdunkel", "미드나잇 다크", "Medianoche oscuro")
+        OCEAN_BLUE -> com.cst.richard.vppassword.ui.AppLanguage.t("Ocean Blue", "深海静谧青", "深海靜謐青", "オーシャンブルー", "Bleu océan", "Ozeanblau", "오션 블루", "Azul océano")
+        FOREST_GREEN -> com.cst.richard.vppassword.ui.AppLanguage.t("Forest Green", "迷雾森林绿", "迷霧森林綠", "フォレストグリーン", "Vert forêt", "Waldgrün", "포레스트 그린", "Verde bosque")
+        ROYAL_NAVY -> com.cst.richard.vppassword.ui.AppLanguage.t("Royal Navy", "皇家海军蓝", "皇家海軍藍", "ロイヤルネイビー", "Royal Navy", "Königliche Marine", "로열 네이비", "Armada real")
+        TITANIUM_MATTE -> com.cst.richard.vppassword.ui.AppLanguage.t("Titanium Matte", "钛晶灰", "鈦晶灰", "チタンマット", "Titane mat", "Titanmatt", "티타늄 매트", "Titanio mate")
+    }
 }
 
 val MidnightColorScheme = darkColorScheme(
@@ -59,27 +66,16 @@ val ForestColorScheme = darkColorScheme(
     onSurface = Color.White
 )
 
-val CyberpunkColorScheme = darkColorScheme(
-    primary = CyberpunkPink,
-    background = CyberpunkDark,
-    surface = CyberpunkDark,
-    surfaceVariant = CyberpunkCard,
+val TitaniumColorScheme = darkColorScheme(
+    primary = TitaniumAccent,
+    onPrimary = TitaniumGrey,
+    secondary = TitaniumAccent,
+    background = TitaniumGrey,
+    surface = TitaniumGrey,
+    surfaceVariant = TitaniumCard,
     onBackground = Color.White,
-    onSurface = Color.White
-)
-
-// --- OLD MONEY Color Schemes ---
-
-val IvorySilkColorScheme = lightColorScheme(
-    primary = CamelTan,
-    onPrimary = Color.White,
-    secondary = CamelTan,
-    background = IvoryBeige,
-    surface = Color.White,
-    surfaceVariant = IvoryBeige.copy(alpha = 0.5f),
-    onBackground = DeepEspresso,
-    onSurface = DeepEspresso,
-    onSurfaceVariant = DeepEspresso.copy(alpha = 0.7f)
+    onSurface = Color.White,
+    onSurfaceVariant = Color.White.copy(alpha = 0.7f)
 )
 
 val RoyalNavyColorScheme = darkColorScheme(
@@ -94,18 +90,6 @@ val RoyalNavyColorScheme = darkColorScheme(
     onSurfaceVariant = ChampagneGold.copy(alpha = 0.7f)
 )
 
-val OxfordWineColorScheme = darkColorScheme(
-    primary = Color.White,
-    onPrimary = OxfordBurgundy,
-    secondary = ChampagneGold,
-    background = OxfordBurgundy,
-    surface = OxfordBurgundy,
-    surfaceVariant = WineCard,
-    onBackground = Color.White,
-    onSurface = Color.White,
-    onSurfaceVariant = Color.White.copy(alpha = 0.7f)
-)
-
 @Composable
 fun VPPasswordTheme(
     themeVariant: ThemeVariant = ThemeVariant.MIDNIGHT_DARK,
@@ -116,10 +100,8 @@ fun VPPasswordTheme(
         ThemeVariant.MIDNIGHT_DARK -> MidnightColorScheme
         ThemeVariant.OCEAN_BLUE -> OceanColorScheme
         ThemeVariant.FOREST_GREEN -> ForestColorScheme
-        ThemeVariant.CYBERPUNK -> CyberpunkColorScheme
-        ThemeVariant.IVORY_SILK -> IvorySilkColorScheme
         ThemeVariant.ROYAL_NAVY -> RoyalNavyColorScheme
-        ThemeVariant.OXFORD_WINE -> OxfordWineColorScheme
+        ThemeVariant.TITANIUM_MATTE -> TitaniumColorScheme
     }
 
     MaterialTheme(

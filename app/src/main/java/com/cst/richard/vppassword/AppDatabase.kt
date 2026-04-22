@@ -1,24 +1,17 @@
 package com.cst.richard.vppassword
 
 import android.content.Context
-import android.os.Environment
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.runBlocking
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 
-@Database(entities = [PasswordEntry::class], version = 1, exportSchema = false)
+@Database(entities = [PasswordEntry::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun passwordDao(): PasswordDao
 
     companion object {
-        private const val TAG = "VP_EXPORT"
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -34,10 +27,24 @@ abstract class AppDatabase : RoomDatabase() {
                     "vppassword.db"
                 )
                 .openHelperFactory(factory)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .build()
                 
                 INSTANCE = instance
                 instance
+            }
+        }
+
+        private val MIGRATION_1_2 = object : androidx.room.migration.Migration(1, 2) {
+            override fun migrate(database: androidx.sqlite.db.SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE passwords ADD COLUMN category INTEGER NOT NULL DEFAULT 0")
+            }
+        }
+
+        private val MIGRATION_2_3 = object : androidx.room.migration.Migration(2, 3) {
+            override fun migrate(database: androidx.sqlite.db.SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE passwords ADD COLUMN notes TEXT NOT NULL DEFAULT ''")
+                database.execSQL("ALTER TABLE passwords ADD COLUMN usedCodes TEXT NOT NULL DEFAULT ''")
             }
         }
     }

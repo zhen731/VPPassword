@@ -16,9 +16,9 @@ val ForestGreenDark = Color(0xFF1B201B)
 val ForestAccent = Color(0xFF4CAF50)
 val ForestCard = Color(0xFF2D382D)
 
-val CyberpunkDark = Color(0xFF1E0A2D)
-val CyberpunkPink = Color(0xFFFF007F)
-val CyberpunkCard = Color(0xFF2C133F)
+val TitaniumGrey = Color(0xFF2B2B2B)
+val TitaniumCard = Color(0xFF383838)
+val TitaniumAccent = Color(0xFFE0E0E0)
 
 // --- OLD MONEY (Quiet Luxury) Palette ---
 
@@ -32,7 +32,7 @@ val RoyalNavyDark = Color(0xFF001A33) // Muted midnight blue
 val ChampagneGold = Color(0xFFF7E7CE) // Soft gold accent
 val NavyCard = Color(0xFF00264D)
 
-// Oxford Wine (Dark)
-val OxfordBurgundy = Color(0xFF4D0000) // Deep muted wine
-val LeatherBrown = Color(0xFF3D2B1F)    // Muted leather
-val WineCard = Color(0xFF660000)
+// Champagne Bloom (Light)
+val ChampagneMain = Color(0xFFFAF3E0)
+val ChampagneAccent = Color(0xFFD4AF37)
+val ChampagneCard = Color(0xFFFFFDF5)

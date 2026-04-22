@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.cst.richard.vppassword.AppLanguage
+
 
 @Composable
 fun AuthScreen(onUnlockSuccess: () -> Unit) {
@@ -31,7 +31,7 @@ fun AuthScreen(onUnlockSuccess: () -> Unit) {
         Icon(Icons.Default.Lock, null, modifier = Modifier.size(72.dp), tint = MaterialTheme.colorScheme.primary)
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = { showBiometricPrompt(context, onUnlockSuccess) }) { 
-            Text(AppLanguage.t("Unlock Safe", "解锁保险箱")) 
+            Text(AppLanguage.t("Unlock Safe", "解锁保险箱", "解鎖保險箱", "保管庫を解除", "Déverrouiller le coffre", "Tresor entsperren", "금고 잠금 해제", "Desbloquear caja fuerte")) 
         }
     }
 }
@@ -51,8 +51,8 @@ fun showBiometricPrompt(activity: FragmentActivity, onSuccess: () -> Unit) {
     })
 
     val info = BiometricPrompt.PromptInfo.Builder()
-        .setTitle(AppLanguage.t("Authentication", "身份验证"))
-        .setSubtitle(AppLanguage.t("Please authenticate to unlock the safe", "请通过验证解锁保险箱"))
+        .setTitle(AppLanguage.t("Authentication", "身份验证", "身份驗證", "認証", "Authentification", "Authentifizierung", "인증", "Autenticación"))
+        .setSubtitle(AppLanguage.t("Please authenticate to unlock the safe", "请通过验证解锁保险箱", "請通過驗證解鎖保險箱", "保管庫を解除するには認証してください", "Veuillez vous authentifier pour déverrouiller le coffre", "Bitte authentifizieren Sie sich, um den Tresor zu entsperren", "금고를 잠금 해제하려면 인증하십시오", "Por favor, autentíquese para desbloquear la caja fuerte"))
         .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
         .build()
 
